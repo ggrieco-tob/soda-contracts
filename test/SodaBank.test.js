@@ -20,6 +20,7 @@ function encodeParameters(types, values) {
 contract('SodaBank', ([alice, bob, carol]) => {
     beforeEach(async () => {
         this.sodaMaster = await SodaMaster.new({ from: alice });
+        console.log("SodaMaster:", this.sodaMaster.address);
 
         this.wETH = await MockERC20.new('Fake Wrapped Ethereum', 'WETH', 3100000, { from: alice });
         await this.sodaMaster.setWETH(this.wETH.address);
