@@ -57,7 +57,8 @@ contract('SodaBank', ([alice, bob, carol]) => {
         const K_CALCULATOR_WETH = 0;
         await this.sodaMaster.addCalculator(K_CALCULATOR_WETH, this.calculator.address, { from: alice });
 
-        const now = Math.floor((new Date()).getTime() / 1000);
+        //const now = Math.floor((new Date()).getTime() / 1000);
+        const now = 1524785992; // This is the value used by echidna/manticore
         // Let the pool start now.
         await this.pool.setPoolInfo(0, this.wETH.address, this.wethVault.address, now, { from: alice });
         await this.createSoda.setPoolInfo(0, this.wethVault.address, this.wETH.address, 1, false, { from: alice });
